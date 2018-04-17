@@ -1,0 +1,27 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.springframework.doc-resources</groupId>
+  <artifactId>spring-doc-resources</artifactId>
+  <name>Spring Documentation Resources</name>
+  <version>0.1-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <descriptor>src/assembly/dep.xml</descriptor>
+        </configuration>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
