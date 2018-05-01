@@ -37,7 +37,7 @@
     window.addEventListener('tocRefresh', handleTocRefresh);
     handleTocOnResize();
 
-    if (!window.location.pathname.endsWith("index.html")) {
+    if (!document.body.classList.contains('book') && !window.location.pathname.endsWith("index.html")) {
         var link = document.createElement("a");
         link.setAttribute("href", "index.html");
         link.innerHTML = "<i class=\"fa fa-chevron-left\"></i>&nbsp;&nbsp;Back to index";
