@@ -3,7 +3,7 @@
   <groupId>org.springframework.doc-resources</groupId>
   <artifactId>spring-doc-resources</artifactId>
   <name>Spring Documentation Resources</name>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1.1-SNAPSHOT</version>
   <build>
     <plugins>
       <plugin>
