@@ -1,0 +1,18 @@
+plugins {
+	id 'distribution'
+}
+
+group = 'io.spring.docresources'
+description = 'Spring Documentation Resources'
+version = "0.1.1-BUILD-SNAPSHOT"
+
+distributions {
+	main {
+		baseName = 'spring-doc-resources'
+		contents {
+			from { "src/main/resources" }
+		}
+	}
+}
+
+
