@@ -1,5 +1,8 @@
 plugins {
 	id 'distribution'
+	id 'maven-publish'
+	id 'com.moowork.node' version '1.2.0'
+	id "com.moowork.gulp" version '1.2.0'
 }
 
 group = 'io.spring.docresources'
@@ -10,9 +13,19 @@ distributions {
 	main {
 		baseName = 'spring-doc-resources'
 		contents {
-			from { "src/main/resources" }
+			from { "${buildDir}/dist" }
+			into '/'
 		}
 	}
 }
 
+publishing {
+	publications {
+		maven(MavenPublication) {
+			artifact distZip
+		}
+	}
+}
 
+gulp_default.dependsOn 'npmInstall', 'installGulp'
+distZip.dependsOn gulp_default

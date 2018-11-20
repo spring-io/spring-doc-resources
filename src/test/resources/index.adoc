@@ -1,0 +1,185 @@
+= AsciiDoc Document Example
+Brian Clozel
+:description: This is a sample document for testing Asciidoctor themes
+:toc: left
+:toclevels: 4
+:tabsize: 4
+
+This is a sample document for testing Asciidoctor themes.
+This is copying a selection of Asciidoctor syntax showcased in
+https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[the official quick reference].
+
+== Text
+
+=== Paragraphs
+
+Paragraphs don't require any special markup in AsciiDoc.
+A paragraph is just one or more lines of consecutive text.
+
+To begin a new paragraph, separate it by at least one blank line.
+Newlines within a paragraph are not displayed.
+
+ A paragraph offset by at least one space becomes a literal paragraph.
+ All lines in a literal paragraph must be adjacent.
+
+NOTE: An admonition paragraph draws the reader's attention to
+auxiliary information.
+Its purpose is determined by the label
+at the beginning of the paragraph.
+
+Here are the other built-in admonition types:
+
+TIP: Pro tip...
+
+IMPORTANT: Don't forget...
+
+WARNING: Watch out for...
+
+CAUTION: Ensure that...
+
+=== Formatted text
+
+*bold phrase* & **char**acter**s**
+
+_italic phrase_ & __char__acter__s__
+
+*_bold italic phrase_* & **__char__**acter**__s__**
+
+`monospace phrase` & ``char``acter``s``
+
+`*monospace bold phrase*` & ``**char**``acter``**s**``
+
+`_monospace italic phrase_` & ``__char__``acter``__s__``
+
+`*_monospace bold italic phrase_*` &
+``**__char__**``acter``**__s__**``
+
+== Lists
+
+=== Unordered lists
+
+* Edgar Allen Poe
+* Sheri S. Tepper
+* Bill Bryson
+
+
+=== Ordered lists
+
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+
+=== Checklists
+
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
+
+=== Definitions
+
+first term:: definition of first term
+second term:: definition of second term
+
+=== Q&A
+
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+
+== Links
+
+https://asciidoctor.org - automatic!
+
+https://asciidoctor.org[Asciidoctor]
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+
+== Source code
+
+Reference code like `types` or `methods` inline.
+Output literal monospace text such as `+{backtick}+` by
+enclosing the text in pluses, then again in backticks.
+
+.app.rb
+[source,ruby]
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
+
+[source,ruby]
+----
+require 'sinatra' // <1>
+
+get '/hi' do // <2>
+  "Hello World!" // <3>
+end
+----
+<1> Library import
+<2> URL mapping
+<3> HTTP response body
+
+----
+line of code  // <1>
+line of code  # <2>
+line of code  ;; <3>
+----
+<1> A callout behind a line comment for C-style languages.
+<2> A callout behind a line comment for Ruby, Python, Perl, etc.
+<3> A callout behind a line comment for Clojure.
+
+[source,xml]
+----
+<section>
+  <title>Section Title</title> <!--1-->
+</section>
+----
+<1> The section title is required.
+
+== Blockquotes
+
+[quote, Abraham Lincoln, Address delivered at the dedication of the Cemetery at Gettysburg]
+____
+Four score and seven years ago our fathers brought forth
+on this continent a new nation...
+____
+
+[quote, Albert Einstein]
+A person who never made a mistake never tried anything new.
+
+____
+A person who never made a mistake never tried anything new.
+____
+
+[quote, Charles Lutwidge Dodgson, 'Mathematician and author, also known as http://en.wikipedia.org/wiki/Lewis_Carroll[Lewis Carroll]']
+____
+If you don't know where you are going, any road will get you there.
+____
+
+== Tables
+
+[cols="1,1,2", options="header"]
+.Applications
+|===
+|Name
+|Category
+|Description
+
+|Firefox
+|Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standards compliance,
+performance, portability.
+
+|Arquillian
+|Testing
+|An innovative and highly extensible testing platform.
+Empowers developers to easily create real, automated tests.
+|===
