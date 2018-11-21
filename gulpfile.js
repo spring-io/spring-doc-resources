@@ -52,6 +52,7 @@ function render() {
                 'sectanchors',
                 'sectnums',
                 'source-highlighter=highlight.js',
+                'highlightjsdir=js/highlight',
                 'stylesdir=css',
                 'stylesheet=spring.css',
                 'docinfo=shared',
