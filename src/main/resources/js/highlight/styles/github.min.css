@@ -1,6 +1,6 @@
 /*
 
-Railscasts-like style (c) Visoft, Inc. (Damien White)
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 */
 
@@ -8,89 +8,86 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #232323;
-  color: #e6e1dc;
+  color: #333;
+  background: #f8f8f8;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #bc9458;
+  color: #998;
   font-style: italic;
 }
 
 .hljs-keyword,
-.hljs-selector-tag {
-  color: #c26230;
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
 }
 
 .hljs-string,
-.hljs-number,
-.hljs-regexp,
-.hljs-variable,
-.hljs-template-variable {
-  color: #a5c261;
-}
-
-.hljs-subst {
-  color: #519f50;
-}
-
-.hljs-tag,
-.hljs-name {
-  color: #e8bf6a;
-}
-
-.hljs-type {
-  color: #da4939;
-}
-
-
-.hljs-symbol,
-.hljs-bullet,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-attr,
-.hljs-link {
-  color: #6d9cbe;
-}
-
-.hljs-params {
-  color: #d0d0ff;
-}
-
-.hljs-attribute {
-  color: #cda869;
-}
-
-.hljs-meta {
-  color: #9b859d;
+.hljs-doctag {
+  color: #d14;
 }
 
 .hljs-title,
-.hljs-section {
-  color: #ffc66d;
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
 }
 
-.hljs-addition {
-  background-color: #144212;
-  color: #e6e1dc;
-  display: inline-block;
-  width: 100%;
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
 }
 
 .hljs-deletion {
-  background-color: #600;
-  color: #e6e1dc;
-  display: inline-block;
-  width: 100%;
+  background: #fdd;
 }
 
-.hljs-selector-class {
-  color: #9b703f;
-}
-
-.hljs-selector-id {
-  color: #8b98ab;
+.hljs-addition {
+  background: #dfd;
 }
 
 .hljs-emphasis {
@@ -99,8 +96,4 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 .hljs-strong {
   font-weight: bold;
-}
-
-.hljs-link {
-  text-decoration: underline;
 }

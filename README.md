@@ -103,6 +103,7 @@ Finally, launch the documentation generation process; default output location is
 					<linkcss>true</linkcss>
 					<icons>font</icons>
 					<highlightjsdir>js/highlight</highlightjsdir>
+					<highlightjs-theme>atom-one-dark-reasonable</highlightjs-theme>
 				</attributes>
 			</configuration>
 		</execution>
@@ -160,7 +161,8 @@ asciidoctor {
 		'icons': 'font',
 		// use provided highlighter
 		'source-highlighter=highlight.js',
-		'highlightjsdir=js/highlight'
+		'highlightjsdir=js/highlight',
+		'highlightjs-theme=atom-one-dark-reasonable'
 }
 
 asciidoctor.dependsOn prepareAsciidocBuild

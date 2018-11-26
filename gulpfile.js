@@ -53,6 +53,7 @@ function render() {
                 'sectnums',
                 'source-highlighter=highlight.js',
                 'highlightjsdir=js/highlight',
+                'highlightjs-theme=atom-one-dark-reasonable',
                 'stylesdir=css',
                 'stylesheet=spring.css',
                 'docinfo=shared',
