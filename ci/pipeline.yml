@@ -1,0 +1,108 @@
+resource_types:
+- name: artifactory-resource
+  type: docker-image
+  source:
+    repository: springio/artifactory-resource
+    tag: 0.0.7-SNAPSHOT
+resources:
+- name: git-repo
+  type: git
+  source:
+    uri: ((github-repo))
+    username: ((github-username))
+    password: ((github-password))
+    branch: ((branch))
+    ignore_paths: ["ci/images/*"]
+- name: ci-images-git-repo
+  type: git
+  source:
+    uri: ((github-repo))
+    branch: ((branch))
+    paths: ["ci/images/*"]
+- name: spring-doc-resources-ci-image
+  type: docker-image
+  source:
+    repository: ((docker-hub-organization))/spring-doc-resources-ci-image
+    username: ((docker-hub-username))
+    password: ((docker-hub-password))
+    tag: ((branch))
+- name: artifactory-repo
+  type: artifactory-resource
+  source:
+    uri: ((artifactory-server))
+    username: ((artifactory-username))
+    password: ((artifactory-password))
+    build_name: ((build-name))
+jobs:
+- name: build-spring-doc-resources-ci-images
+  plan:
+  - get: ci-images-git-repo
+    trigger: true
+  - put: spring-doc-resources-ci-image
+    params:
+      build: ci-images-git-repo/ci/images/spring-doc-resources-ci-image
+- name: build
+  serial: true
+  public: true
+  plan:
+  - get: spring-doc-resources-ci-image
+  - get: git-repo
+    trigger: true
+  - do:
+    - task: build-project
+      privileged: true
+      timeout: 30m
+      image: spring-doc-resources-ci-image
+      file: git-repo/ci/tasks/build-project.yml
+  - put: artifactory-repo
+    params: &artifactory-params
+      repo: libs-snapshot-local
+      build_number: "${BUILD_ID}"
+      folder: distribution-repository
+      build_uri: "https://ci.spring.io/teams/${BUILD_TEAM_NAME}/pipelines/${BUILD_PIPELINE_NAME}/jobs/${BUILD_JOB_NAME}/builds/${BUILD_NAME}"
+      build_number: "${BUILD_PIPELINE_NAME}-${BUILD_JOB_NAME}-${BUILD_NAME}"
+      disable_checksum_uploads: true
+- name: stage-release
+  serial: true
+  plan:
+  - get: spring-doc-resources-ci-image
+  - get: git-repo
+    trigger: false
+  - task: stage
+    image: spring-doc-resources-ci-image
+    file: git-repo/ci/tasks/stage.yml
+    params:
+      RELEASE_TYPE: RELEASE
+  - put: artifactory-repo
+    params:
+      <<: *artifactory-params
+      repo: libs-staging-local
+  - put: git-repo
+    params:
+      repository: stage-git-repo
+- name: promote-release
+  serial: true
+  plan:
+  - get: spring-doc-resources-ci-image
+  - get: git-repo
+    trigger: false
+  - get: artifactory-repo
+    trigger: false
+    passed: [stage-release]
+    params:
+      save_build_info: true
+  - task: promote
+    image: spring-doc-resources-ci-image
+    file: git-repo/ci/tasks/promote.yml
+    params:
+      RELEASE_TYPE: RELEASE
+      ARTIFACTORY_SERVER: ((artifactory-server))
+      ARTIFACTORY_USERNAME: ((artifactory-username))
+      ARTIFACTORY_PASSWORD: ((artifactory-password))
+groups:
+- name: "Build"
+  jobs: ["build"]
+- name: "Release"
+  jobs: ["stage-release", "promote-release"]
+- name: "CI Images"
+  jobs: ["build-spring-doc-resources-ci-images"]

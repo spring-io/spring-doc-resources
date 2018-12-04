@@ -1,0 +1,6 @@
+github-repo: "https://github.com/spring-io/spring-doc-resources.git"
+github-repo-name: "spring-io/spring-doc-resources"
+docker-hub-organization: "springci"
+artifactory-server: "https://repo.spring.io"
+branch: "master"
+build-name: "spring-doc-resources"

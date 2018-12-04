@@ -9,6 +9,12 @@ group = 'io.spring.docresources'
 description = 'Spring Documentation Resources'
 version = "0.1.0-BUILD-SNAPSHOT"
 
+node {
+	version = '11.2.0'
+	npmVersion = '6.4.1'
+	download = true
+}
+
 distributions {
 	main {
 		baseName = 'spring-doc-resources'
