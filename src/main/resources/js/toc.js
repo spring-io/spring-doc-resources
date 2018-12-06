@@ -9,7 +9,7 @@ if (toctitle != null) {
         contentSelector: '#content',
         headingSelector: 'h1, h2, h3, h4, h5',
         positionFixedSelector: 'body',
-        fixedSidebarOffset: 150,
+        fixedSidebarOffset: 90,
         smoothScroll: false
     });
     var link = document.createElement("a");
