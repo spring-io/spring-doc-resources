@@ -1,7 +1,7 @@
 
 div.back-action, #toc.toc2 div.back-action {
   padding: 0.8rem 0rem;
-  border-right: 1px solid #ddddd8;
+  //border-right: 1px solid #ddddd8;
   a {
     position: relative;
     display: inline-block;
@@ -103,7 +103,7 @@ body.toc2 {
   }
 
   #content {
-    margin-top: 2rem
+    padding-top: 2rem
   }
 }
 
