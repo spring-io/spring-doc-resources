@@ -1,4 +1,6 @@
-# Spring Doc Resources
+<p align="center">
+    <img alt="Spring Doc Resources" title="Spring Doc Resources" src="https://i.imgur.com/fGi6EaT.png" width="450">
+</p>
 
 This project generates and packages the static resources that Spring uses for document production.
 
