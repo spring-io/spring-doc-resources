@@ -465,15 +465,12 @@ h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
   background-color: rgba(0, 0, 0, .05);
   border-radius: 4px;
   text-rendering: optimizeSpeed;
-  word-wrap: break-word;
 }
 
 *:not(pre) > code.nobreak {
-  word-wrap: normal;
 }
 
 *:not(pre) > code.nowrap {
-  white-space: nowrap;
 }
 
 pre, pre > code {
@@ -694,10 +691,14 @@ body.toc2 {
 }
 
 table.tableblock > caption.title {
+  display: block;
   white-space: nowrap;
   overflow: visible;
-  max-width: 0;
-  padding: 0.6rem 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.6rem;
+  border-bottom: 1px solid #cacaca;
+  background: #f9f9f9;
 }
 
 table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
@@ -800,15 +801,13 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
   //border: 1px solid #aaa;
   //-webkit-border-radius: 4px;
   //border-radius: 4px;
-  word-wrap: break-word;
+  //word-wrap: normal;
   padding: 1em 1.5rem;
   font-size: 0.8125em;
 }
 
 .literalblock pre.nowrap, .literalblock pre[class].nowrap, .listingblock pre.nowrap, .listingblock pre[class].nowrap {
   overflow-x: auto;
-  white-space: nowrap;
-  word-break: keep-all;
 }
 
 .literalblock.output pre {
@@ -816,8 +815,12 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
+.listingblock {
+  white-space: nowrap;
+}
+
 .listingblock pre.highlightjs {
-  padding: 0;
+  padding: 0.2rem 0;
 }
 
 .listingblock pre.highlightjs > code {
@@ -1004,8 +1007,10 @@ table.pyhltable .linenodiv {
 }
 
 table.tableblock {
+  display: block;
   max-width: 100%;
   border-collapse: separate;
+  overflow-x: scroll;
 }
 
 table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child {
@@ -1589,6 +1594,7 @@ b.conum * {
   margin: 30px 0;
   width: auto;
   border-radius: 4px;
+  overflow-x: scroll;
   &.important {
     border-left: 0px solid #e20000;
     background-color: #f9ebeb;
