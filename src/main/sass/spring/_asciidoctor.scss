@@ -19,7 +19,6 @@ html {
   box-sizing: border-box;
 }
 
-
 body {
   background: white;
   color: #000;
@@ -373,6 +372,17 @@ blockquote, blockquote p {
   line-height: 1.5rem;
 }
 
+.mobile-toc {
+  padding: 0 0 1rem 0;
+  line-height: 1.5rem;
+  li {
+    a {
+      display: block;
+      padding: .3rem 0;
+    }
+  }
+}
+
 #tocbot ol li {
   list-style: none;
   padding: 0;
@@ -626,7 +636,6 @@ body.toc2 {
   padding-bottom: 0.625em;
 }
 
-
 .sect1 + .sect1 {
   border-top: 1px solid #efefed;
 }
@@ -801,7 +810,6 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
   white-space: nowrap;
   word-break: keep-all;
 }
-
 
 .literalblock.output pre {
   color: whitesmoke;

@@ -1,3 +1,8 @@
+
+.desktop-toc {
+  display: none;
+}
+
 @media only screen and (min-width: 768px) {
   $w: 15em;
   #toctitle {
@@ -5,6 +10,14 @@
   }
   .sect1 {
     padding-bottom: 1.25em;
+  }
+
+  .mobile-toc {
+    display: none;
+  }
+
+  .desktop-toc {
+    display: block;
   }
 
   .literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] {
