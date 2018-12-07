@@ -755,6 +755,7 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
   padding: 1.25em;
   background: #f1f1f1;
   border-radius: 4px;
+  overflow: scroll;
 }
 
 .sidebarblock > :first-child {
@@ -776,13 +777,13 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
 }
 
 .literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
-  background: #232323;
+  background: #282c33;
   color: #e6e1dc;
   border-radius: 4px;
 }
 
 .sidebarblock .literalblock pre, .sidebarblock .listingblock pre:not(.highlight), .sidebarblock .listingblock pre[class="highlight"], .sidebarblock .listingblock pre[class^="highlight "], .sidebarblock .listingblock pre.CodeRay, .sidebarblock .listingblock pre.prettyprint {
-  background: #232323;
+  background: #282c33;
   color: #e6e1dc;
 }
 
@@ -797,8 +798,8 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
 
 .literalblock pre.nowrap, .literalblock pre[class].nowrap, .listingblock pre.nowrap, .listingblock pre[class].nowrap {
   overflow-x: auto;
-  white-space: pre;
-  word-wrap: normal;
+  white-space: nowrap;
+  word-break: keep-all;
 }
 
 

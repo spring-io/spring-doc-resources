@@ -145,7 +145,7 @@ body.toc2 {
 
 #header > h1:first-child + #toc {
   margin-top: 8px;
-  border-top: 1px solid #ddddd8;
+  border-top: 0 none;
 }
 
 #header > h1:only-child, body.toc2 #header > h1:nth-last-child(2) {
