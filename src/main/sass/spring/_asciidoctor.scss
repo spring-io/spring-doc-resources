@@ -691,14 +691,10 @@ body.toc2 {
 }
 
 table.tableblock > caption.title {
-  display: block;
   white-space: nowrap;
   overflow: visible;
-  max-width: none;
-  margin: 0;
-  padding: 0.6rem;
-  border-bottom: 1px solid #cacaca;
-  background: #f9f9f9;
+  max-width: 0;
+  padding: 0.6rem 0;
 }
 
 table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
@@ -1007,7 +1003,6 @@ table.pyhltable .linenodiv {
 }
 
 table.tableblock {
-  display: block;
   max-width: 100%;
   border-collapse: separate;
   overflow-x: scroll;
