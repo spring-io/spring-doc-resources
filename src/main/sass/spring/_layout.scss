@@ -1,6 +1,6 @@
 
 div.back-action, #toc.toc2 div.back-action {
-  padding: 0.8rem 0rem;
+  padding: 0.8rem 0 0 0;
   //border-right: 1px solid #ddddd8;
   a {
     position: relative;
@@ -30,6 +30,9 @@ div.back-action, #toc.toc2 div.back-action {
   }
 }
 
+#tocbot.desktop-toc {
+  padding-top: 0.8rem;
+}
 
 #header-spring {
   position: absolute;
