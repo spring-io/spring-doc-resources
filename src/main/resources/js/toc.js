@@ -1,4 +1,5 @@
 var toctitle = document.getElementById('toctitle');
+var path = window.location.pathname;
 if (toctitle != null) {
     var oldtoc = toctitle.nextElementSibling;
     var newtoc = document.createElement('div');
@@ -13,13 +14,15 @@ if (toctitle != null) {
         fixedSidebarOffset: 90,
         smoothScroll: false
     });
-    var link = document.createElement("a");
-    link.setAttribute("href", "index.html");
-    link.innerHTML = "<span><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span> Back to index";
-    var block = document.createElement("div");
-    block.setAttribute('class', 'back-action');
-    block.appendChild(link);
-    var toc = document.getElementById('toc');
-    var next = document.getElementById('toctitle').nextElementSibling;
-    toc.insertBefore(block, next);
+    if (!path.endsWith("index.html") && !path.endsWith("/")) {
+        var link = document.createElement("a");
+        link.setAttribute("href", "index.html");
+        link.innerHTML = "<span><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span> Back to index";
+        var block = document.createElement("div");
+        block.setAttribute('class', 'back-action');
+        block.appendChild(link);
+        var toc = document.getElementById('toc');
+        var next = document.getElementById('toctitle').nextElementSibling;
+        toc.insertBefore(block, next);
+    }
 }
