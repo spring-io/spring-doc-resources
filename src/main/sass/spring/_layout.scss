@@ -287,3 +287,11 @@ pre.highlight, #toc.toc2 {
     background: rgba(255, 255, 255, .2) !important;
   }
 }
+
+body.book #header {
+  margin-bottom: 2rem;
+}
+
+body.toc2 #header {
+  margin-bottom: 0;
+}
