@@ -3,6 +3,15 @@
   display: none;
 }
 
+.admonitionblock td.icon {
+  display: none;
+}
+
+.admonitionblock>table td.content {
+  padding-left: 1.25em;
+}
+
+
 @media only screen and (min-width: 768px) {
   $w: 15em;
   #toctitle {
@@ -23,6 +32,15 @@
   .literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class] {
     font-size: 0.90625em;
   }
+
+  .admonitionblock td.icon {
+    display: table-cell;
+  }
+
+  .admonitionblock>table td.content {
+    padding-left: 0;
+  }
+
   body.toc2 {
     padding-right: 0;
     //padding-left: 15em;
