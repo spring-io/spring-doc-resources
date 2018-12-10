@@ -236,6 +236,7 @@ code {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-weight: normal;
   color: #3d3d3c;
+  word-break: break-word;
 }
 
 /* Lists */
@@ -480,6 +481,7 @@ pre, pre > code {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-weight: normal;
   text-rendering: optimizeSpeed;
+  word-break: normal;
 }
 
 pre {
