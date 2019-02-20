@@ -1,10 +1,11 @@
-:toc: left
-:docinfo: shared
-
 [[spring-style-guide]]
 = Spring Style Guide
 :icons: font
-:caption:
+:toc: left
+:toc-levels: 4
+:docinfo: shared
+:sectanchors:
+
 
 This document is for authors of Spring documentation. It describes when and how to use the
 various document elements (headings, tables, lists, and so on) and describes best
@@ -12,8 +13,7 @@ practices.
 
 NOTE: A style guide is not a stylesheet. This document does not cover font faces and
 point sizes and other layout details. Rather, it offers advice about how to write well for
-Spring. The link:style-guide-stylesheet.css[associated CSS file] defines the layout
-details.
+Spring.
 
 NOTE: This guide is not meant to be an explanation of how Asciidoc works. For the syntax
 of how to create any particular construct in Asciidoc, see the
@@ -543,10 +543,3 @@ When you use content toggling, remember to make each content set make sense both
 own and in the presence of the rest of the document. Also, if you include the option to
 have all the content sets available at once, remember to write all the content so that it
 makes sense both together and when a particular set of content has been chosen.
-
-TIP: If you have competing content sets, it is often a good idea to have an option to
-include all the competing content sets, so that readers who need  to choose between the
-options can read about each option and so that readers who are  changing from one to
-another can compare the options.
-
-For the details  of how content toggling works, see <<content-toggling.adoc>>.
