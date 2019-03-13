@@ -116,7 +116,7 @@ Finally, launch the documentation generation process; default output location is
 
 ## Gradle build integration
 
-You can use the [Asciidoctor Gradle plugin](https://asciidoctor.org/docs/asciidoctor-gradle-plugin/) 
+You can use the [Asciidoctor Gradle plugin](https://asciidoctor.org/docs/asciidoctor-gradle-plugin/)
 to generate your documentation.
 
 ```groovy
@@ -139,6 +139,22 @@ task prepareAsciidocBuild(type: Sync) {
 	from "src/docs/asciidoc/"
 	// to a build directory of your choice
 	into "$buildDir/asciidoc/build"
+}
+
+task('makePDF', type: org.asciidoctor.gradle.AsciidoctorTask){
+	dependsOn prepareAsciidocBuild
+	backends 'pdf'
+	sourceDir "$buildDir/asciidoc/assemble"
+	sources {
+		include 'index-test.adoc'
+		include 'test.adoc'
+	}
+	options doctype: 'book', eruby: 'erubis'
+	logDocuments = true
+	attributes 'icons': 'font',
+		'sectanchors': '',
+		'toc': '',
+		'source-highlighter' : 'coderay'
 }
 
 asciidoctor {
@@ -167,10 +183,36 @@ asciidoctor {
 		'highlightjs-theme=atom-one-dark-reasonable'
 }
 
-asciidoctor.dependsOn prepareAsciidocBuild
-``` 
+asciidoctor.dependsOn makePDF
+```
+
+## Features
+
+spring-doc-resources has a few features that we have added to address certain use cases.
+
+### The "Back to Index" Link
+
+For HTML output, if the current page is not index.html, you automatically get a link to index.html.
+This link appears above the table of contents.
+For many projects, this link never appears, because that project's build renders the documentation as index.html.
+
+You can customize the destination of the "Back to Index" link by specifying a role with a value of `#index-link`, as follows:
+
+```
+[#index-link]
+https://spring.io
+```
+
+where `https://spring.io` is the link you want.
+
+Please do use a link that readers might reasonably think would be an index page.
+(The canonical case is the project's page on spring.io.)
+
+Nominally, you can put that role anywhere, but near the top of your main Asciidoc file makes the most sense.
 
 ## Limitations
+
+As with anything, there are some limitations that you should be aware of when you use spring-doc-resources.
 
 ### Code samples
 
@@ -182,7 +224,7 @@ location within project sources, from which code samples can be resolved.
 ### DocInfo files
 
 To get the dynamic table of contents to work correctly, you need to set the `docinfo` attribute to `shared`, thus: `:docinfo: shared`.
-Bear in mind that, if you set the attribute in your build, it overrides the value in your Asciidoc files. 
+Bear in mind that, if you set the attribute in your build, it overrides the value in your Asciidoc files.
 You may still want to set the attribute in your Asciidoc files, though, if you generate files with the `asciidoctor` command for testing.
 You can also use `private` docinfo particular to asciidoc documents (see [docinfo documentation](https://asciidoctor.org/docs/user-manual/#naming-docinfo-files)).
 
