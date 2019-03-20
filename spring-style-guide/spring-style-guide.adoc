@@ -17,7 +17,7 @@ Spring.
 
 NOTE: This guide is not meant to be an explanation of how Asciidoc works. For the syntax
 of how to create any particular construct in Asciidoc, see the
-http://asciidoctor.org/docs/user-manual/[Asciidoc User Manual].
+https://asciidoctor.org/docs/user-manual/[Asciidoc User Manual].
 
 This style guide covers the following topics:
 
