@@ -158,7 +158,7 @@ ____
 A person who never made a mistake never tried anything new.
 ____
 
-[quote, Charles Lutwidge Dodgson, 'Mathematician and author, also known as http://en.wikipedia.org/wiki/Lewis_Carroll[Lewis Carroll]']
+[quote, Charles Lutwidge Dodgson, 'Mathematician and author, also known as https://en.wikipedia.org/wiki/Lewis_Carroll[Lewis Carroll]']
 ____
 If you don't know where you are going, any road will get you there.
 ____
