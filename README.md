@@ -188,7 +188,7 @@ asciidoctor.dependsOn makePDF
 
 ## Features
 
-spring-doc-resources has a few features that we have added to address certain use cases.
+Spring Doc Resources has a few features that we have added to address certain use cases.
 
 ### The "Back to Index" Link
 
