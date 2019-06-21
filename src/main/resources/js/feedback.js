@@ -141,10 +141,9 @@ function sendFeedback() {
   var timestamp = new Date().getTime();
 
   var data = {"starNumber":numStars, "feedbackText":feedbackText, "email":email,
-    "pageId":getPageId(), "path":path, "browserName":browserName,
-    "browserVersion":browserVersion, "osName":osName, "osVersion":osVersion,
-    "timestamp":timestamp,
-    "heading":getHeadingId()};
+    "projectName":getProjectName(), "pageId":getPageId(), "path":path,
+    "browserName":browserName, "browserVersion":browserVersion, "osName":osName,
+    "osVersion":osVersion, "timestamp":timestamp, "heading":getHeadingId()};
   var jsonData = JSON.stringify(data);
 
   var xhr = new XMLHttpRequest();
