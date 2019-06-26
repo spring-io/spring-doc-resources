@@ -127,6 +127,17 @@ function getProjectName() {
   return '';
 }
 
+function getDateString() {
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+
+  var today = new Date();
+  var thisDay = today.getDate();
+  var thisMonth = monthNames[today.getMonth()];
+  var thisYear = today.getFullYear();
+  return thisDay + " " + thisMonth + ", " + thisYear;
+}
+
 // Create and send the feedback JSON
 function sendFeedback() {
   var feedbackText = $("#feedbackText").val();
@@ -143,8 +154,9 @@ function sendFeedback() {
   var data = {"starNumber":numStars, "feedbackText":feedbackText, "email":email,
     "projectName":getProjectName(), "pageId":getPageId(), "path":path,
     "browserName":browserName, "browserVersion":browserVersion, "osName":osName,
-    "osVersion":osVersion, "timestamp":timestamp, "heading":getHeadingId()};
+    "osVersion":osVersion, "timestamp":timestamp, "dateString":getDateString(), "heading":getHeadingId()};
   var jsonData = JSON.stringify(data);
+
 
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "https://spring-docs-feedback.cfapps.io/feedback", true);
