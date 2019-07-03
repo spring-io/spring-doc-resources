@@ -413,7 +413,7 @@ table {
 }
 
 table thead, table tfoot {
-  background: #f7f8f7;
+  background: #f2f2f2;
   font-weight: bold;
 }
 
@@ -430,8 +430,8 @@ table tr th, table tr td {
   color: #000;
 }
 
-table tr.even, table tr.alt, table tr:nth-of-type(even) {
-  //background: #f8f8f7;
+table tr.even, table tr.alt, table tr:nth-child(even) {
+	background: #fafafa;
 }
 
 table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td {
@@ -464,7 +464,7 @@ h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
   font-style: normal !important;
   letter-spacing: 0;
   padding: 0.1em 0.3em 0.2em;
-  background-color: rgba(0, 0, 0, .05);
+  background-color: rgba(27,31,35,.05);
   border-radius: 4px;
   text-rendering: optimizeSpeed;
 }
@@ -1017,7 +1017,6 @@ table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock t
 
 table.tableblock, th.tableblock, td.tableblock {
   border: 0 solid #cacaca;
-  background: white;
 }
 
 table.grid-all th.tableblock, table.grid-all td.tableblock {
@@ -1097,11 +1096,6 @@ tbody tr th {
 tbody tr th, tbody tr th p, tfoot tr th, tfoot tr th p {
   color: #34302d;
   font-weight: bold;
-}
-
-p.tableblock > code {
-  background: none;
-  padding: 0;
 }
 
 p.tableblock {
