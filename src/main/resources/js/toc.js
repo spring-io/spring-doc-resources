@@ -33,6 +33,57 @@ if (toctitle != null) {
     }
 }
 
+var feedbackHtml = '<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>' +
+    '<script type="text/javascript" src="js/js.cookie.js"></script>' +
+    '<script type="text/javascript" src="js/feedback.js"></script>' +
+    '<script type="text/javascript" src="js/jquery.modal.min.js"></script>' +
+    '<script type="text/javascript" src="js/ua-parser.min.js"></script>' +
+    '<div>' +
+      '<div id="feedbackArea">' +
+        '<div id="sendFeedback">Send feedback</div>' +
+        '<div id="stars">' +
+          '<div><a href="#feedbackForm" rel="modal:open"><img id="star1" alt="1-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
+          '<div><a href="#feedbackForm" rel="modal:open"><img id="star2" alt="2-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
+          '<div><a href="#feedbackForm" rel="modal:open"><img id="star3" alt="3-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
+          '<div><a href="#feedbackForm" rel="modal:open"><img id="star4" alt="4-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
+          '<div><a href="#feedbackForm" rel="modal:open"><img id="star5" alt="5-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
+        '</div>' +
+        '<form id="feedbackForm" class="modal" style="display:none;">' +
+          '<div id="innerStars">' +
+            '<div><img id="innerStar1" alt="1-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
+            '<div><img id="innerStar2" alt="2-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
+            '<div><img id="innerStar3" alt="3-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
+            '<div><img id="innerStar4" alt="4-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
+            '<div><img id="innerStar5" alt="5-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
+          '</div>' +
+          '<p align="center" style="margin-bottom: .25em">What would you like to tell us about this document?</p>' +
+          '<textarea id="feedbackText" style="display:block;width:360px; height:125px; margin:auto"></textarea>' +
+          '<p align="center" style="margin-top: 1.25em; margin-bottom: 0em">Email (if you want a response)</p>' +
+          '<p align="center" style="font-size:small; margin-top: 0em; margin-bottom: 0em">NOTE: We cannot guarantee a response to each feedback message.</p>' +
+          '<input type="text" id="email" name="email" style="display: block; margin: auto"></input>' +
+          '<p align="center" style="margin-top: 1.25em">Want to open an issue? Click <a href="' + getIssueURL() +  '" target="_blank">here</a>.</p>' +
+          '<p align="center" style="margin-top: 1.25em">Thank you.</p>' +
+          '<p align="center"><a id="modalClose" href="#close" rel="modal:close" onClick="sendFeedback()">Send Feedback</a></p>' +
+        '</form>' +
+      '</div>' +
+    '</div>';
+
+function getIssueURL() {
+  var metas = document.getElementsByTagName('meta');
+  for (i = 0; i < metas.length; i++) {
+    if (metas[i].getAttribute('name') === 'issue-url') {
+      return metas[i].getAttribute('content');
+    }
+  }
+  return '';
+}
+
+var feedback = document.createElement("div");
+feedback.innerHTML = feedbackHtml;
+var toc = document.getElementById('toc');
+var next = document.getElementById('toctitle').nextElementSibling;
+toc.insertBefore(feedback, next);
+
 var headerHtml = '<div id="header-spring">\n' +
     '<h1>\n' +
     '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0"\n' +
