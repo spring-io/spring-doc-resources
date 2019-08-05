@@ -14,17 +14,17 @@ if (toctitle != null) {
         fixedSidebarOffset: 90,
         smoothScroll: false
     });
-    if (!path.endsWith("index.html") && !path.endsWith("/")) {
-        var link = document.createElement("a");
+    if (!path.endsWith('index.html') && !path.endsWith('/')) {
+        var link = document.createElement('a');
         if (document.getElementById('index-link')) {
-          indexLinkElement = document.querySelector('#index-link > p > a');
-          linkHref = indexLinkElement.getAttribute("href");
-          link.setAttribute("href", linkHref);
+            indexLinkElement = document.querySelector('#index-link > p > a');
+            linkHref = indexLinkElement.getAttribute('href');
+            link.setAttribute('href', linkHref);
         } else {
-          link.setAttribute("href", "index.html");
+            link.setAttribute('href', 'index.html');
         }
-        link.innerHTML = "<span><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span> Back to index";
-        var block = document.createElement("div");
+        link.innerHTML = '<span><i class="fa fa-chevron-left" aria-hidden="true"></i></span> Back to index';
+        var block = document.createElement('div');
         block.setAttribute('class', 'back-action');
         block.appendChild(link);
         var toc = document.getElementById('toc');
@@ -33,53 +33,14 @@ if (toctitle != null) {
     }
 }
 
-var feedbackHtml = '<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>' +
-    '<script type="text/javascript" src="js/js.cookie.js"></script>' +
-    '<script type="text/javascript" src="js/feedback.js"></script>' +
-    '<script type="text/javascript" src="js/jquery.modal.min.js"></script>' +
-    '<script type="text/javascript" src="js/ua-parser.min.js"></script>' +
-    '<div>' +
-      '<div id="feedbackArea">' +
-        '<div id="sendFeedback">Send feedback</div>' +
-        '<div id="stars">' +
-          '<div><a href="#feedbackForm" rel="modal:open"><img id="star1" alt="1-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
-          '<div><a href="#feedbackForm" rel="modal:open"><img id="star2" alt="2-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
-          '<div><a href="#feedbackForm" rel="modal:open"><img id="star3" alt="3-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
-          '<div><a href="#feedbackForm" rel="modal:open"><img id="star4" alt="4-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
-          '<div><a href="#feedbackForm" rel="modal:open"><img id="star5" alt="5-star rating" src="images/star_unfilled.png" height="19" width="20"/></a></div>' +
-        '</div>' +
-        '<form id="feedbackForm" class="modal" style="display:none;">' +
-          '<div id="innerStars">' +
-            '<div><img id="innerStar1" alt="1-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
-            '<div><img id="innerStar2" alt="2-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
-            '<div><img id="innerStar3" alt="3-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
-            '<div><img id="innerStar4" alt="4-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
-            '<div><img id="innerStar5" alt="5-star rating" src="images/star_unfilled.png" height="19" width="20"/></div>' +
-          '</div>' +
-          '<p align="center" style="margin-bottom: .25em">What would you like to tell us about this document?</p>' +
-          '<textarea id="feedbackText" style="display:block;width:360px; height:125px; margin:auto"></textarea>' +
-          '<p align="center" style="margin-top: 1.25em; margin-bottom: 0em">Email (if you want a response)</p>' +
-          '<p align="center" style="font-size:small; margin-top: 0em; margin-bottom: 0em">NOTE: We cannot guarantee a response to each feedback message.</p>' +
-          '<input type="text" id="email" name="email" style="display: block; margin: auto"></input>' +
-          '<p align="center" style="margin-top: 1.25em">Want to open an issue? Click <a href="' + getIssueURL() +  '" target="_blank">here</a>.</p>' +
-          '<p align="center" style="margin-top: 1.25em">Thank you.</p>' +
-          '<p align="center"><a id="modalClose" href="#close" rel="modal:close" onClick="sendFeedback()">Send Feedback</a></p>' +
-        '</form>' +
-      '</div>' +
+var feedbackHtml = '<div id="feedback-area">' +
+    '<h1>Send feedback</h1>' +
+    getStarsComponent('stars') +
     '</div>';
 
-function getIssueURL() {
-  var metas = document.getElementsByTagName('meta');
-  for (i = 0; i < metas.length; i++) {
-    if (metas[i].getAttribute('name') === 'issue-url') {
-      return metas[i].getAttribute('content');
-    }
-  }
-  return '';
-}
-
-var feedback = document.createElement("div");
+var feedback = document.createElement('div');
 feedback.innerHTML = feedbackHtml;
+
 var toc = document.getElementById('toc');
 var next = document.getElementById('toctitle').nextElementSibling;
 toc.insertBefore(feedback, next);
@@ -155,10 +116,161 @@ var headerHtml = '<div id="header-spring">\n' +
     '</g>\n' +
     '</g>\n' +
     '</svg>\n' +
-    '\n' +
     '</h1>\n' +
     '</div>';
 
-var header = document.createElement("div");
+var starsNumber = 0;
+var header = document.createElement('div');
 header.innerHTML = headerHtml;
 document.body.insertBefore(header, document.body.firstChild);
+
+function getIssueURL() {
+    var metas = document.getElementsByTagName('meta');
+    for (var i = 0; i < metas.length; i++) {
+        if (metas[i].getAttribute('name') === 'issue-url') {
+            return metas[i].getAttribute('content');
+        }
+    }
+    return '';
+}
+
+function getProjectName() {
+    var metas = document.getElementsByTagName('meta');
+    for (var i = 0; i < metas.length; i++) {
+        if (metas[i].getAttribute('name') === 'project') {
+            return metas[i].getAttribute('content');
+        }
+    }
+    return '';
+}
+
+function getPageId() {
+    var pageId = getProjectName() + '_';
+    if (document.getElementById('revnumber')) {
+        pageId += document.getElementById('revnumber').innerHTML + '_';
+    }
+    pageId += window.location.pathname.split('\\').pop().split('/').pop();
+    pageId = pageId.split(' ').join('_');
+    return pageId;
+}
+
+function getDateString() {
+    var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'];
+    var today = new Date();
+    var thisDay = today.getDate();
+    var thisMonth = monthNames[today.getMonth()];
+    var thisYear = today.getFullYear();
+    return thisDay + ' ' + thisMonth + ', ' + thisYear;
+}
+
+function getHeadings() {
+    var activeTocElement = toc.getElementsByClassName('is-active-li');
+    var headings = [];
+    if (activeTocElement && activeTocElement.length > 0) {
+        activeTocElement = activeTocElement[0];
+        headings.push({
+            text: activeTocElement.childNodes[0].textContent,
+            href: activeTocElement.childNodes[0].href
+        });
+        while (activeTocElement.parentElement.parentElement.className === 'toc-list-item') {
+            headings.push({
+                text: activeTocElement.parentElement.parentElement.childNodes[0].textContent,
+                href: activeTocElement.parentElement.parentElement.childNodes[0].href
+            });
+            activeTocElement = activeTocElement.parentElement.parentElement;
+        }
+    } else {
+        headings.push({
+            text: 'Top of document',
+            href: ''
+        })
+    }
+    return headings.reverse().map(function (value) {
+        if (value.href) {
+            return value.text + ' (' + value.href + ')';
+        }
+        return value.text;
+    }).join(' > ');
+}
+
+var urlIssue = getIssueURL();
+if (urlIssue) {
+    document.getElementById('ref-issue').setAttribute('href', urlIssue)
+} else {
+    document.getElementById('p-issue').style.display = 'none';
+}
+
+function getStarsComponent(id) {
+    return '<div class="stars" id="' + id + '">' +
+        '<span><a id="' + id + '1" class="star" onclick="onStarClick(1)" onmouseover="onStarMouseover(1)"></a></span>' +
+        '<span><a id="' + id + '2" class="star" onclick="onStarClick(2)" onmouseover="onStarMouseover(2)"></a></span>' +
+        '<span><a id="' + id + '3" class="star" onclick="onStarClick(3)" onmouseover="onStarMouseover(3)"></a></span>' +
+        '<span><a id="' + id + '4" class="star" onclick="onStarClick(4)" onmouseover="onStarMouseover(4)"></a></span>' +
+        '<span><a id="' + id + '5" class="star" onclick="onStarClick(5)" onmouseover="onStarMouseover(5)"></a></span>' +
+        '</div>';
+}
+
+function onStarMouseover(index) {
+    for (var i = 1; i <= 5; i++) {
+        var a = document.getElementById('stars' + i);
+        var b = document.getElementById('dialog-stars' + i);
+        var clazz = (i <= index) ? 'star active' : 'star';
+        if (a) {
+            a.className = clazz;
+        }
+        if (b) {
+            b.className = clazz;
+        }
+    }
+}
+
+function resetForm() {
+    starsNumber = 0;
+    document.getElementById('feedback-comment').value = '';
+    document.getElementById('feedback-email').value = '';
+    onStarMouseover(0);
+}
+
+function onStarClick(index) {
+    starsNumber = index;
+    MicroModal.show('modal-1', {disableScroll: true});
+}
+
+function submitFeedback(event) {
+    try {
+        event.preventDefault();
+        var parser = new UAParser();
+        var parserResult = parser.getResult();
+        var path = window.location.pathname;
+        var browserName = parserResult.browser.name;
+        var browserVersion = parserResult.browser.version;
+        var osName = parserResult.os.name;
+        var osVersion = parserResult.os.version;
+        var timestamp = new Date().getTime();
+        var obj = {
+            'starNumber': starsNumber,
+            'feedbackText': document.getElementById('feedback-comment').value,
+            'email': document.getElementById('feedback-email').value,
+            'projectName': getProjectName(),
+            'pageId': getPageId(),
+            'path': path,
+            'browserName': browserName,
+            'browserVersion': browserVersion,
+            'osName': osName,
+            'osVersion': osVersion,
+            'timestamp': timestamp,
+            'dateString': getDateString(),
+            'heading': getHeadings()
+        };
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://spring-docs-feedback.cfapps.io/feedback', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(obj));
+        resetForm();
+        MicroModal.close('modal-1');
+        alert('Your feedback has been send.')
+    } catch (e) {
+        alert('An error occurred while sending your feedback.')
+    }
+}
