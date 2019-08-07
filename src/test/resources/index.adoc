@@ -182,4 +182,12 @@ performance, portability.
 |Testing
 |An innovative and highly extensible testing platform.
 Empowers developers to easily create real, automated tests.
+
+|`lynx`
+|Pain
+|A browser for your `shell` that's very old school.
+
+|`curl`
+|Testing
+|A cli for your `shell` that's great.
 |===
