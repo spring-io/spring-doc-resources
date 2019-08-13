@@ -38,12 +38,14 @@ var feedbackHtml = '<div id="feedback-area">' +
     getStarsComponent('stars') +
     '</div>';
 
-var feedback = document.createElement('div');
-feedback.innerHTML = feedbackHtml;
+if(document.getElementById('pageId') != null) {
+  var feedback = document.createElement('div');
+  feedback.innerHTML = feedbackHtml;
 
-var toc = document.getElementById('toc');
-var next = document.getElementById('toctitle').nextElementSibling;
-toc.insertBefore(feedback, next);
+  var toc = document.getElementById('toc');
+  var next = document.getElementById('toctitle').nextElementSibling;
+  toc.insertBefore(feedback, next);
+}
 
 var headerHtml = '<div id="header-spring">\n' +
     '<h1>\n' +
