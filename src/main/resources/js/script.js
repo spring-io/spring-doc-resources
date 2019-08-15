@@ -33,10 +33,12 @@ if (toctitle != null) {
     }
 }
 
-var feedbackHtml = '<div id="feedback-area">' +
-    '<h1>Send feedback</h1>' +
-    getStarsComponent('stars') +
-    '</div>';
+var starsNumber = 0;
+
+var feedbackHtml = '<div id="feedback-area" onmouseout="onStarMouseover(starsNumber)">' +
+  '<h1>Send feedback</h1>' +
+  getStarsComponent('stars') +
+  '</div>';
 
 if(document.getElementById('pageId') != null) {
   var feedback = document.createElement('div');
@@ -121,7 +123,6 @@ var headerHtml = '<div id="header-spring">\n' +
     '</h1>\n' +
     '</div>';
 
-var starsNumber = 0;
 var header = document.createElement('div');
 header.innerHTML = headerHtml;
 document.body.insertBefore(header, document.body.firstChild);
@@ -147,13 +148,8 @@ function getProjectName() {
 }
 
 function getPageId() {
-    var pageId = getProjectName() + '_';
-    if (document.getElementById('revnumber')) {
-        pageId += document.getElementById('revnumber').innerHTML + '_';
-    }
-    pageId += window.location.pathname.split('\\').pop().split('/').pop();
-    pageId = pageId.split(' ').join('_');
-    return pageId;
+  var pageIdElement = document.querySelector('#pageId > p');
+  return pageIdElement.innerHTML;
 }
 
 function getDateString() {
@@ -271,7 +267,7 @@ function submitFeedback(event) {
         xhr.send(JSON.stringify(obj));
         resetForm();
         MicroModal.close('modal-1');
-        alert('Your feedback has been send.')
+        alert('Your feedback has been sent.')
     } catch (e) {
         alert('An error occurred while sending your feedback.')
     }
