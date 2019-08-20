@@ -257,11 +257,11 @@ h6 {
 }
 
 pre.highlight {
-  background: #232323;
+  background: #f2f2f2;
   code {
-    color: #e6e1dc;
+    color: #222;
   }
-  color: #e6e1dc;
+  color: #666;
   border-radius: 4px;
 }
 
@@ -284,7 +284,7 @@ pre.highlight, #toc.toc2 {
 
 .literalblock pre, .listingblock pre[class="highlight"], .highlight, pre, .highlight code, .highlight code span {
   &::selection {
-    background: rgba(255, 255, 255, .2) !important;
+    background: rgba(0, 0, 0, .2) !important;
   }
 }
 

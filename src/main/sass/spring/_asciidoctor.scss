@@ -786,14 +786,14 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
 }
 
 .literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
-  background: #282c33;
-  color: #e6e1dc;
+  background: #f2f2f2;
+  color: #222;
   border-radius: 4px;
 }
 
 .sidebarblock .literalblock pre, .sidebarblock .listingblock pre:not(.highlight), .sidebarblock .listingblock pre[class="highlight"], .sidebarblock .listingblock pre[class^="highlight "], .sidebarblock .listingblock pre.CodeRay, .sidebarblock .listingblock pre.prettyprint {
-  background: #282c33;
-  color: #e6e1dc;
+  background: #f2f2f2;
+  color: #222;
 }
 
 .literalblock pre, .literalblock pre[class], .listingblock pre, .listingblock pre[class], .listingblock pre:not(.highlight) {
