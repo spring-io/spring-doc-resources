@@ -78,6 +78,16 @@ _italic phrase_ & __char__acter__s__
 * [ ] not checked
 *     normal list item
 
+=== Checklists code link
+
+* https://asciidoctor.org[`@BootstrapWith`]
+
+* https://asciidoctor.org[`@ContextConfiguration`]
+
+* https://asciidoctor.org[`@WebAppConfiguration`]
+
+* https://asciidoctor.org[`@ContextHierarchy`]
+
 === Definitions
 
 first term:: definition of first term

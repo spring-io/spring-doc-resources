@@ -1640,3 +1640,15 @@ b.conum * {
 #index-link {
   display: none
 }
+
+ul li > p > a {
+
+  > code {
+  color: #097dff;
+  }
+  &:hover {
+    > code {
+      color: #097dff;
+    }
+  }
+}
