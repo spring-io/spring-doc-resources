@@ -188,7 +188,7 @@ asciidoctor.dependsOn makePDF
 
 ## Features
 
-spring-doc-resources has a few features that we have added to address certain use cases.
+Spring Doc Resources has a few features that we have added to address certain use cases.
 
 ### The "Back to Index" Link
 
@@ -209,6 +209,31 @@ Please do use a link that readers might reasonably think would be an index page.
 (The canonical case is the project's page on spring.io.)
 
 Nominally, you can put that role anywhere, but near the top of your main Asciidoc file makes the most sense.
+
+### The Feedback Widget
+
+In your HTML output (only), you can enable a feedback widget on each page of your documentation.
+The feedback widget lets a reader select a rating (1 to 5 stars), add a comment, and (if they
+want a reply) leave an email address. (It also offers a link to the project's issue tracking system.)
+
+To use it, you need to add a `pageId` element to each Asciidoc file that should produce an
+HTML page with a feedback link. To do so, add a block similar to the following below the first
+heading in the file:
+
+```ifdef::backend-html5[]
+[[pageId]]
+springbatch_{revnumber}_index-single
+endif::backend-html5[]
+```
+
+For the page ID string itself, we strongly recommend following the format implied in the preceding
+listing. That is, concatenate the project name, the project version, and the file name (without
+the `.adoc` extension). The preceding example comes from the `index-single.adoc` file in the
+Spring Batch project. The `{revnumber}` attribute reference picks up the project (build) version.
+Asciidoctor automatically generates the `revnumber` attribute, so you need not try to create it.
+
+The comments that people leave go into a database that is exposed through a CloudFoundry application.
+We have created a feedback viewer, which you can find at https://github.com/spring-io/spring-doc-feedback.
 
 ## Limitations
 

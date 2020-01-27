@@ -9,6 +9,11 @@ This is a sample document for testing Asciidoctor themes.
 This is copying a selection of Asciidoctor syntax showcased in
 https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[the official quick reference].
 
+ifdef::backend-html5[]
+[[pageId]]
+spring_doc_resources_test_{revnumber}_index
+endif::backend-html5[]
+
 == Text
 
 === Paragraphs
