@@ -1,3 +1,1 @@
 rootProject.name = 'spring-doc-resources'
-
-enableFeaturePreview('STABLE_PUBLISHING')
