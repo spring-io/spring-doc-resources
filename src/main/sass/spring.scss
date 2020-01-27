@@ -1,24 +1,11 @@
 @charset "utf-8";
 
-
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:400,700');
 
 @import "spring/normalize";
 
 @import "spring/asciidoctor";
 
-@import "spring/modal";
-
 @import "spring/layout";
-
-
 
 @import "spring/responsive";
