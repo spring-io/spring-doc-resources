@@ -105,7 +105,7 @@ Finally, launch the documentation generation process; default output location is
 					<linkcss>true</linkcss>
 					<icons>font</icons>
 					<highlightjsdir>js/highlight</highlightjsdir>
-					<highlightjs-theme>atom-one-dark-reasonable</highlightjs-theme>
+					<highlightjs-theme>github</highlightjs-theme>
 				</attributes>
 			</configuration>
 		</execution>
@@ -180,7 +180,7 @@ asciidoctor {
 		// use provided highlighter
 		'source-highlighter=highlight.js',
 		'highlightjsdir=js/highlight',
-		'highlightjs-theme=atom-one-dark-reasonable'
+		'highlightjs-theme=github'
 }
 
 asciidoctor.dependsOn makePDF
