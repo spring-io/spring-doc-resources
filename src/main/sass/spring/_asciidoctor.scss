@@ -1,14 +1,14 @@
 @charset "utf-8";
 
-$header-height: 90px;
-$spring-primary-color: #6BB344;
+$header-height: 80px;
+$spring-primary-color: #6bb536;
 
 html, body {
   font-size: 100%;
 }
 
 html {
-  font-family: Karla, sans-serif; /* 1 */
+  font-family: 'Open Sans', sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -25,7 +25,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 16px;
-  font-family: Karla, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.6em;
@@ -136,13 +136,13 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .
 
 /* Default Link Styles */
 a {
-  color: #097dff;
+  color: #086dc3;
   line-height: inherit;
   text-decoration: none;
 }
 
 a:hover, a:focus {
-  color: #016be2;
+  color: #086dc3;
   text-decoration: underline;
 }
 
@@ -209,7 +209,7 @@ h6 {
 }
 
 hr {
-  border: solid #ddddd8;
+  border: solid #dce6e6;
   border-width: 1px 0 0;
   clear: both;
   margin: 1.25em 0 1.1875em;
@@ -237,6 +237,11 @@ code {
   font-weight: normal;
   color: #3d3d3c;
   word-break: break-word;
+}
+
+a:not(pre)>code {
+  border: 1px solid #086dc3;
+  color: #086dc3;
 }
 
 /* Lists */
@@ -394,26 +399,38 @@ blockquote, blockquote p {
 #tocbot ol {
   margin: 0;
   padding: 0;
+}
+
+#tocbot ol ol {
   padding-left: 0.6rem;
 }
 
 #tocbot .toc-link {
   display: block;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: .6rem;
+  padding-bottom: .6rem;
   outline: none;
+  border-radius: 4px;
+  font-size: 15px;
+  transition: all .15s;
+}
+
+#tocbot .toc-link:hover {
+  background: #ebf2f2;
+  color: #06c;
+  text-decoration: none;
 }
 
 /* Tables */
 table {
   background: white;
   margin-bottom: 1.25em;
-  border: solid 1px #cacaca;
+  border: solid 1px #d4dfdf;
   border-spacing: 0;
 }
 
 table thead, table tfoot {
-  background: #f2f2f2;
+  background: #ebf2f2;
   font-weight: bold;
 }
 
@@ -431,7 +448,7 @@ table tr th, table tr td {
 }
 
 table tr.even, table tr.alt, table tr:nth-child(even) {
-	background: #fafafa;
+	background: #f5f9f9;
 }
 
 table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td {
@@ -460,13 +477,13 @@ h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
 }
 
 *:not(pre) > code {
-  font-size: 0.8525em;
-  font-style: normal !important;
-  letter-spacing: 0;
-  padding: 0.1em 0.3em 0.2em;
-  background-color: rgba(27,31,35,.05);
-  border-radius: 4px;
-  text-rendering: optimizeSpeed;
+  white-space: nowrap;
+  background-color: #fff;
+  border: 1px solid #e1e1e8;
+  color: #009;
+  padding: 2px 6px;
+  font-size: .875rem;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 
 *:not(pre) > code.nobreak {
@@ -553,7 +570,7 @@ p a > code:hover {
 }
 
 #toc {
-  border-bottom: 1px solid #ddddd8;
+  border-bottom: 1px solid #dce6e6;
   padding-bottom: 0.5em;
 }
 
@@ -600,7 +617,7 @@ body.toc2 {
 #content #toc {
   border-style: solid;
   border-width: 1px;
-  border-color: #d7d7d7;
+  border-color: #dce6e6;
   margin-bottom: 1.25em;
   padding: 1.25em;
   background: #f1f1f1;
@@ -688,7 +705,7 @@ body.toc2 {
 .admonitionblock td.content > .title, .audioblock > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .stemblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, table.tableblock > .title, .verseblock > .title, .videoblock > .title, .dlist > .title, .olist > .title, .ulist > .title, .qlist > .title, .hdlist > .title {
   text-rendering: optimizeLegibility;
   text-align: left;
-  font-family: Karla, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   //font-style: italic;
 }
@@ -731,7 +748,7 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
 .admonitionblock > table td.content {
   padding-left: 0em;
   padding-right: 1.25em;
-  border-left: 1px solid #ddddd8;
+  border-left: 1px solid #dce6e6;
 }
 
 .admonitionblock > table td.content > :last-child > :last-child {
@@ -759,10 +776,10 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
 .sidebarblock {
   border-style: solid;
   border-width: 0;
-  border-color: #d7d7d7;
+  border-color: #dce6e6;
   margin-bottom: 1.25em;
   padding: 1.25em;
-  background: #f1f1f1;
+  background: #ebf2f2;
   border-radius: 4px;
   overflow: scroll;
 }
@@ -786,13 +803,15 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
 }
 
 .literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
-  background: #f2f2f2;
+  background: #fff;
+  border: 1px solid #d9d9d9;
   color: #222;
   border-radius: 4px;
 }
 
 .sidebarblock .literalblock pre, .sidebarblock .listingblock pre:not(.highlight), .sidebarblock .listingblock pre[class="highlight"], .sidebarblock .listingblock pre[class^="highlight "], .sidebarblock .listingblock pre.CodeRay, .sidebarblock .listingblock pre.prettyprint {
-  background: #f2f2f2;
+  background: #fff;
+  border: 1px solid #d9d9d9;
   color: #222;
 }
 
@@ -816,10 +835,6 @@ table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p {
 
 .listingblock {
   white-space: nowrap;
-}
-
-.listingblock pre.highlightjs {
-  padding: 0.2rem 0;
 }
 
 .listingblock pre.highlightjs > code {
@@ -881,7 +896,7 @@ pre.pygments .lineno, table.pyhltable td:not(.code) {
   color: #999;
   padding-left: 0;
   padding-right: .5em;
-  border-right: 1px solid #ddddd8;
+  border-right: 1px solid #dce6e6;
 }
 
 pre.pygments .lineno {
@@ -1016,7 +1031,7 @@ table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock t
 }
 
 table.tableblock, th.tableblock, td.tableblock {
-  border: 0 solid #cacaca;
+  border: 0 solid #d4dfdf;
 }
 
 table.grid-all th.tableblock, table.grid-all td.tableblock {
@@ -1232,6 +1247,10 @@ td.hdlist1 {
 
 .colist > table tr > td:last-of-type {
   padding: 0.25em 0;
+}
+
+.colist > table tr > td {
+  white-space: pre-wrap;
 }
 
 .thumb, .th {
@@ -1489,7 +1508,7 @@ div.unbreakable {
 }
 
 .white-background {
-  background-color: #fafafa;
+  background-color: #f5f9f9;
 }
 
 .yellow {
@@ -1644,11 +1663,48 @@ b.conum * {
 ul li > p > a {
 
   > code {
-  color: #097dff;
+  color: #086dc3;
   }
   &:hover {
     > code {
-      color: #097dff;
+      color: #086dc3;
     }
+  }
+}
+
+#content {
+  .listingblock .switch {
+    border-style: none;
+    display: inline-block;
+    position: relative;
+    bottom: 0;
+    margin-bottom: 4px;
+  }
+  .listingblock .switch--item:not(:first-child) {
+    border: 2px solid #000;
+  }
+  .listingblock .switch--item {
+    padding: 6px 12px;
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #000;
+    margin-right: 2px;
+    border-radius: 0;
+  }
+  .listingblock .switch--item:hover {
+    color: #086dc3;
+  }
+  .listingblock .switch--item.selected {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+  }
+  .listingblock .switch--item.selected:hover {
+    color: #fff;
+  }
+  .listingblock pre.highlightjs {
+    padding: 0;
   }
 }
