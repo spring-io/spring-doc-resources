@@ -1,7 +1,7 @@
 
 div.back-action, #toc.toc2 div.back-action {
   padding: 0.8rem 0 0 5px;
-  //border-right: 1px solid #ddddd8;
+  //border-right: 1px solid #ebf2f2;
   a {
     position: relative;
     display: inline-block;
@@ -31,7 +31,7 @@ div.back-action, #toc.toc2 div.back-action {
 }
 
 #tocbot.desktop-toc {
-  padding-top: 0.8rem;
+  padding: .5rem;
 }
 
 #header-spring {
@@ -43,8 +43,7 @@ div.back-action, #toc.toc2 div.back-action {
   height: $header-height;
   margin: 0 1rem;
   padding: 0 1rem;
-  border-bottom: 1px solid #ddddd8;
-  border-top: 3px solid $spring-primary-color;
+  border-bottom: 1px solid #dce6e6;
   h1 {
     margin: 0;
     padding: 0;
@@ -53,7 +52,7 @@ div.back-action, #toc.toc2 div.back-action {
     line-height: $header-height - 4px;
     padding-left: 0.6rem;
     svg {
-      width: 200px;
+      width: 240px;
       .st0 {
         fill: $spring-primary-color;
       }
@@ -140,10 +139,15 @@ body.toc2 {
   content: none;
 }
 
+#header {
+  position: relative;
+}
+
 #header > h1:first-child {
   margin-top: 2.55rem;
   margin-bottom: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.7em;
+  font-size: 2rem;
 }
 
 #header > h1:first-child + #toc {
@@ -152,23 +156,21 @@ body.toc2 {
 }
 
 #header > h1:only-child, body.toc2 #header > h1:nth-last-child(2) {
-  border-bottom: 1px solid #ddddd8;
+  border-bottom: 1px solid #ebf2f2;
   padding-bottom: 8px;
 }
 
 #header .details {
-  border-bottom: 1px solid #ddddd8;
   line-height: 1.45;
-  padding-top: 0;
-  padding-bottom: 2.25em;
-  padding-left: 0.25em;
-  color: rgba(0, 0, 0, 0.6);
+  color: #222;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -ms-flex-flow: row wrap;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
+  background-color: #ebf2f2;
+  padding: 2rem 2.5rem;
 }
 
 #header .details span:first-child {
@@ -206,7 +208,7 @@ body.toc2 {
 
 #content > h1:first-child:not([class]) {
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid #ddddd8;
+  border-bottom: 1px solid #ebf2f2;
   padding-bottom: 8px;
   margin-top: 0;
   padding-top: 1.5rem;
@@ -215,11 +217,10 @@ body.toc2 {
 
 h1 {
   font-size: 2.2rem;
-  letter-spacing: -1px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+  font-weight: bold;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   &:focus {
     box-shadow: none;
@@ -237,7 +238,6 @@ h1 {
 
 h2 {
   font-size: 1.6rem;
-  letter-spacing: -1px;
 }
 
 h3 {
@@ -257,18 +257,18 @@ h6 {
 }
 
 pre.highlight {
-  background: #f2f2f2;
+  padding: 20px;
+  border: 1px solid #d9d9d9;
+  overflow-x: scroll;
   code {
     color: #222;
   }
-  color: #666;
-  border-radius: 4px;
+  color: #222;
 }
 
 pre.highlight, #toc.toc2 {
   a {
     color: #000;
-    font-size: 1rem;
   }
   ul.sectlevel1 {
     padding-left: 0.2rem;
