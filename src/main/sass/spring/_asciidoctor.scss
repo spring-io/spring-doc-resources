@@ -1023,6 +1023,7 @@ table.tableblock {
   max-width: 100%;
   border-collapse: separate;
   overflow-x: scroll;
+  display: block;
 }
 
 table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child {
