@@ -266,7 +266,7 @@ You can also publish that artifact to your local maven repository for testing wi
 When working on the project, one can run the following command:
 
 ```
-$ ./gradlew gulp_dev
+$ ./gradlew npm_run_dev
 ```
 
 This will start a local server on `http://localhost:8080`, watch files under `src/**` and rebuild automatically.

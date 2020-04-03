@@ -11,5 +11,9 @@
     "gulp-connect": "^5.6.1",
     "gulp-sass": "^4.0.2",
     "node-sass": "^4.13.1"
+  },
+  "scripts": {
+    "build": "gulp",
+    "dev": "gulp dev"
   }
 }
