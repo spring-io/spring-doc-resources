@@ -477,7 +477,7 @@ h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
 }
 
 *:not(pre) > code {
-  white-space: nowrap;
+  // white-space: nowrap;
   background-color: #fff;
   border: 1px solid #e1e1e8;
   color: #009;
