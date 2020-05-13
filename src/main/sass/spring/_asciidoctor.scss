@@ -1708,3 +1708,11 @@ ul li > p > a {
     padding: 0;
   }
 }
+
+/* Default header styles */
+h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
+  *:not(pre)>code, code {
+    font-size: 90%;
+    font-weight: bold;
+  }
+}
