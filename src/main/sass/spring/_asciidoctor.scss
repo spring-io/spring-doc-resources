@@ -235,13 +235,7 @@ small {
 code {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-weight: normal;
-  color: #3d3d3c;
   word-break: break-word;
-}
-
-a:not(pre)>code {
-  border: 1px solid #086dc3;
-  color: #086dc3;
 }
 
 /* Lists */
@@ -476,8 +470,8 @@ h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
   clear: both;
 }
 
+/*
 *:not(pre) > code {
-  // white-space: nowrap;
   background-color: #fff;
   border: 1px solid #e1e1e8;
   color: #009;
@@ -490,6 +484,22 @@ h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
 }
 
 *:not(pre) > code.nowrap {
+}
+
+a:not(pre)>code {
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 6px;
+  padding: .2em .4em;
+}
+*/
+
+*:not(pre) > code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 4px;
 }
 
 pre, pre > code {
