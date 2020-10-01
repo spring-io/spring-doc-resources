@@ -1032,7 +1032,6 @@ table.pyhltable .linenodiv {
 table.tableblock {
   max-width: 100%;
   border-collapse: separate;
-  overflow-x: scroll;
   display: block;
 }
 
@@ -1615,7 +1614,6 @@ b.conum * {
   margin: 30px 0;
   width: auto;
   border-radius: 4px;
-  overflow-x: auto;
   &.important {
     border-left: 0px solid #e20000;
     background-color: #f9ebeb;
