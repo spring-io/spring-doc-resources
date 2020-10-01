@@ -1683,37 +1683,39 @@ ul li > p > a {
     border-style: none;
     display: inline-block;
     position: relative;
-    bottom: 0;
-    margin-bottom: 4px;
   }
   .listingblock .switch--item:not(:first-child) {
-    border: 2px solid #000;
+  }
+  .listingblock .switch--item:first-child {
+    border-left: 1px solid #d9d9d9;
   }
   .listingblock .switch--item {
-    padding: 6px 12px;
-    background-color: #fff;
-    color: #000;
-    display: inline-block;
+    font-weight: bold;
+    font-size: 0.70em;
     cursor: pointer;
-    border: 2px solid #000;
-    margin-right: 2px;
-    border-radius: 0;
-  }
-  .listingblock .switch--item:hover {
-    color: #086dc3;
+    padding: 2px 10px;
+    color: black;
+    border-top: 1px solid #d9d9d9;;
+    border-left: none;
+    border-right: 1px solid #d9d9d9;;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
   .listingblock .switch--item.selected {
-    background-color: #000;
-    color: #fff;
-    border-color: #000;
+    background: #f8f8f8;
+    color: black;
+  }
+  .listingblock .switch--item:hover {
+    background: #f8f8f8;
+    color: #086dc3;
   }
   .listingblock .switch--item.selected:hover {
-    color: #fff;
   }
   .listingblock pre.highlightjs {
     padding: 0;
   }
 }
+
 
 /* Default header styles */
 h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
