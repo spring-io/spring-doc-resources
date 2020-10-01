@@ -53,7 +53,7 @@ function render() {
                 'sectnums',
                 'source-highlighter=highlight.js',
                 'highlightjsdir=js/highlight',
-                'highlightjs-theme=color-brewer',
+                'highlightjs-theme=github',
                 'stylesdir=css',
                 'stylesheet=spring.css',
                 'docinfo=shared',
