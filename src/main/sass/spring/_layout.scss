@@ -189,9 +189,19 @@ body.toc2 {
   content: "\00a0\2013\00a0";
 }
 
-#header .details br + span.author:before {
-  content: "\00a0\22c5\00a0";
+#header .details span.author:before {
+  content: "";
   color: rgba(0, 0, 0, 0.85);
+}
+
+#header .details span.author:after {
+  content: "\22c5";
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0 3px;
+}
+
+#header .details span.author:nth-last-child(2):after {
+  content:  "";
 }
 
 #header .details br + span#revremark:before {
@@ -259,6 +269,7 @@ h6 {
 pre.highlight {
   padding: 20px;
   border: 1px solid #d9d9d9;
+  overflow-x: scroll;
   code {
     color: #222;
   }
