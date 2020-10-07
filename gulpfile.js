@@ -1,6 +1,6 @@
 const { src, dest, series, parallel, watch } = require('gulp'),
     gulpSass = require('gulp-sass'),
-    asciidoctor = require('gulp-asciidoctor'),
+    asciidoctor = require('@asciidoctor/gulp-asciidoctor'),
     gulpConnect = require('gulp-connect');
 
 const paths = {
