@@ -1,15 +1,15 @@
 plugins {
 	id 'distribution'
 	id 'maven-publish'
-	id 'com.github.node-gradle.node' version '2.2.3'
+	id 'com.github.node-gradle.node' version '2.2.4'
 }
 
 group = 'io.spring.docresources'
 description = 'Spring Documentation Resources'
 
 node {
-	version = '13.12.0'
-	npmVersion = '6.14.4'
+	version = '14.12.0'
+	npmVersion = '6.14.8'
 	download = true
 }
 
@@ -18,7 +18,7 @@ distZip.dependsOn npm_run_build
 
 distributions {
 	main {
-		baseName = 'spring-doc-resources'
+		distributionBaseName = 'spring-doc-resources'
 		contents {
 			from { "${buildDir}/dist" }
 			into '/'
