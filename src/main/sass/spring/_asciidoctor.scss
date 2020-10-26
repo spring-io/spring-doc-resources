@@ -1684,22 +1684,24 @@ ul li > p > a {
 
 #content {
   .listingblock .switch {
+    font-weight: bold;
+    font-size: 70%;
     border-style: none;
     display: inline-block;
     position: relative;
     bottom: 0;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
   .listingblock .switch--item:not(:first-child) {
-    border: 2px solid #000;
+    border: 1px solid #4d4d4d;
   }
   .listingblock .switch--item {
-    padding: 6px 12px;
+    padding: 2px 12px;
     background-color: #fff;
-    color: #000;
+    color: #282828;
     display: inline-block;
     cursor: pointer;
-    border: 2px solid #000;
+    border: 1px solid #4d4d4d;
     margin-right: 2px;
     border-radius: 0;
   }
@@ -1707,9 +1709,9 @@ ul li > p > a {
     color: #086dc3;
   }
   .listingblock .switch--item.selected {
-    background-color: #000;
+    background-color: #282828;
     color: #fff;
-    border-color: #000;
+    border-color: #282828;
   }
   .listingblock .switch--item.selected:hover {
     color: #fff;
