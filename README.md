@@ -21,56 +21,30 @@ You first need to declare this project as a dependency:
 </dependency>
 ```
 
-Unpack the resources and the actual asciidoc documents in a specific build directory:
+Unpack the resources and the actual Asciidoc documents in a specific build directory:
 
 ```xml
-<plugins>
 <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-dependency-plugin</artifactId>
-	<executions>
-	<execution>
-		<id>unpack-doc-resources</id>
-		<goals>
-			<goal>unpack-dependencies</goal>
-		</goals>
-		<phase>generate-resources</phase>
-		<configuration>
-			<includeGroupIds>io.spring.docresources</includeGroupIds>
-			<includeArtifactIds>spring-doc-resources</includeArtifactIds>
-			<includeTypes>zip</includeTypes>
-			<excludeTransitive>true</excludeTransitive>
-			<outputDirectory>${project.build.directory}/refdocs/</outputDirectory>
-		</configuration>
-	</execution>
-</executions>
+  <groupId>com.googlecode.maven-download-plugin</groupId>
+  <artifactId>download-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>unpack-doc-resources</id>
+      <phase>generate-resources</phase>
+      <goals>
+        <goal>wget</goal>
+      </goals>
+      <configuration>
+        <url>https://repo.spring.io/release/io/spring/docresources/spring-doc-resources/${spring-doc-resources.version}/spring-doc-resources-${spring-doc-resources.version}.zip</url>
+        <unpack>true</unpack>
+        <outputDirectory>${refdocs.build.directory}</outputDirectory>
+      </configuration>
+    </execution>
+  </executions>
 </plugin>
-<plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-resources-plugin</artifactId>
-	<executions>
-		<execution>
-			<id>copy-asciidoc-resources</id>
-			<phase>generate-resources</phase>
-			<goals>
-				<goal>copy-resources</goal>
-			</goals>
-			<configuration>
-				<outputDirectory>${project.build.directory}/refdocs/</outputDirectory>
-				<resources>
-					<resource>
-						<directory>src/main/asciidoc</directory>
-						<filtering>false</filtering>
-					</resource>
-				</resources>
-			</configuration>
-		</execution>
-	</executions>
-</plugin>
-</plugins>
 ```
 
-Finally, launch the documentation generation process; default output location is `target/generated-docs/`:
+Finally, launch the documentation generation process (the default output location is `target/generated-docs/`):
 
 ```xml
 <plugin>
