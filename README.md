@@ -9,39 +9,53 @@ This project generates and packages the static resources that Spring uses for do
 You can use the [Asciidoctor Maven plugin](https://github.com/asciidoctor/asciidoctor-maven-plugin)
 to generate your documentation.
 
-You first need to declare this project as a dependency:
-
-```xml
-<dependency>
-	<groupId>io.spring.docresources</groupId>
-	<artifactId>spring-doc-resources</artifactId>
-	<version>${docs.resources.version}</version>
-	<type>zip</type>
-	<optional>true</optional>
-</dependency>
-```
-
 Unpack the resources and the actual Asciidoc documents in a specific build directory:
 
-```xml
-<plugin>
-  <groupId>com.googlecode.maven-download-plugin</groupId>
-  <artifactId>download-maven-plugin</artifactId>
-  <executions>
-    <execution>
-      <id>unpack-doc-resources</id>
-      <phase>generate-resources</phase>
-      <goals>
-        <goal>wget</goal>
-      </goals>
-      <configuration>
-        <url>https://repo.spring.io/release/io/spring/docresources/spring-doc-resources/${spring-doc-resources.version}/spring-doc-resources-${spring-doc-resources.version}.zip</url>
-        <unpack>true</unpack>
-        <outputDirectory>${refdocs.build.directory}</outputDirectory>
-      </configuration>
-    </execution>
-  </executions>
-</plugin>
+```xml 
+<build>
+    <plugins>
+        <plugin>
+          <groupId>com.googlecode.maven-download-plugin</groupId>
+          <artifactId>download-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>unpack-doc-resources</id>
+              <phase>generate-resources</phase>
+              <goals>
+                <goal>wget</goal>
+              </goals>
+              <configuration>
+                <url>https://repo.spring.io/release/io/spring/docresources/spring-doc-resources/${spring-doc-resources.version}/spring-doc-resources-${spring-doc-resources.version}.zip</url>
+                <unpack>true</unpack>
+                <outputDirectory>${refdocs.build.directory}</outputDirectory>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>copy-asciidoc-resources</id>
+                    <phase>generate-resources</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${refdocs.build.directory}</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>src/main/asciidoc</directory>
+                                <filtering>false</filtering>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 Finally, launch the documentation generation process (the default output location is `target/generated-docs/`):
