@@ -218,6 +218,24 @@ A table with long entries and no breakable space.
 |Another entry
 |===
 
+A short table.
+
+[cols="1,1", options="header"]
+.Issues
+|===
+|Name
+|Servlet Version
+
+|Tomcat 9.0
+|4.0
+
+|Jetty 9.4
+|3.1
+
+|Undertow 2.0
+|4.0
+|===
+
 A shell code block
 
 [indent=0,subs="attributes"]
