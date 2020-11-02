@@ -8,8 +8,8 @@ group = 'io.spring.docresources'
 description = 'Spring Documentation Resources'
 
 node {
-	version = '14.12.0'
-	npmVersion = '6.14.8'
+	version = '15.0.1'
+	npmVersion = '7.0.3'
 	download = true
 }
 
