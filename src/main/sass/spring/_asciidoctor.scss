@@ -1247,8 +1247,8 @@ td.hdlist1 {
 }
 
 .colist > table tr > td:first-of-type {
-  padding: 0 0.75em;
-  line-height: 1;
+  padding: 0.25em 0.75em;
+  vertical-align: text-top;
 }
 
 .colist > table tr > td:first-of-type img {

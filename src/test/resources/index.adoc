@@ -133,7 +133,7 @@ enclosing the text in pluses, then again in backticks.
 		    case ACCEPTING_TRAFFIC: // <1>
 			    // create file /tmp/healthy
 			break;
-		    case REFUSING_TRAFFIC:
+		    case REFUSING_TRAFFIC: // <2>
 		    	// remove file /tmp/healthy
 			break;
 		    }
@@ -142,6 +142,8 @@ enclosing the text in pluses, then again in backticks.
 	}
 ----
 <1> A sample comment.
+<2> A multiline comment with a lot of text. The quick brown fox jumps over the lazy dog.
+The quick brown fox jumps over the lazy dog.
 
 [source,yaml,indent=0]
 ----
