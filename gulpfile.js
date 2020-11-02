@@ -1,4 +1,5 @@
 const { src, dest, series, parallel, watch } = require('gulp'),
+    del = require('del'),
     gulpSass = require('gulp-sass'),
     asciidoctor = require('@asciidoctor/gulp-asciidoctor'),
     gulpConnect = require('gulp-connect');
@@ -13,6 +14,11 @@ const paths = {
 /*
  * Building the theme
  */
+
+// Cleans the build folder for the dev lifecycle
+function clean(cb) {
+    del([paths.dist + '**'], cb());
+}
 
 // Compile SASS files to build/dist/css/
 function sass() {
@@ -71,6 +77,11 @@ function watchFiles(cb) {
     cb();
 }
 
+// cleans the build folder for the dev lifecycle
+function cleanDev(cb) {
+    del([paths.web + '**'], cb());
+}
+
 // Serve sample document and reload for changes
 function connect(cb) {
     gulpConnect.server({
@@ -80,7 +91,7 @@ function connect(cb) {
     cb();
 }
 
-const build = series(sass, copyResource);
+const build = series(clean, sass, copyResource);
 const update = series(build, copyDist, render);
 exports.default = build;
-exports.dev = series(update, parallel(connect, watchFiles));
+exports.dev = series(cleanDev, update, parallel(connect, watchFiles));
