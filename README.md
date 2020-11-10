@@ -83,7 +83,6 @@ Finally, launch the documentation generation process (the default output locatio
 			</goals>
 			<configuration>
 				<backend>html5</backend>
-				<sourceHighlighter>highlight.js</sourceHighlighter>
 				<doctype>book</doctype>
 				<attributes>
 					// these attributes are required to use the doc resources
@@ -94,6 +93,7 @@ Finally, launch the documentation generation process (the default output locatio
 					<icons>font</icons>
 					<highlightjsdir>js/highlight</highlightjsdir>
 					<highlightjs-theme>github</highlightjs-theme>
+					<source-highlighter>highlight.js</source-highlighter>
 				</attributes>
 			</configuration>
 		</execution>
