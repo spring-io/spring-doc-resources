@@ -24,13 +24,13 @@ Unpack the resources and the actual Asciidoc documents in a specific build direc
               <goals>
                 <goal>wget</goal>
               </goals>
-              <configuration>
-                <url>https://repo.spring.io/release/io/spring/docresources/spring-doc-resources/${spring-doc-resources.version}/spring-doc-resources-${spring-doc-resources.version}.zip</url>
-                <unpack>true</unpack>
-                <outputDirectory>${refdocs.build.directory}</outputDirectory>
-              </configuration>
             </execution>
           </executions>
+          <configuration>
+            <url>https://repo.spring.io/release/io/spring/docresources/spring-doc-resources/${spring-doc-resources.version}/spring-doc-resources-${spring-doc-resources.version}.zip</url>
+            <unpack>true</unpack>
+            <outputDirectory>${refdocs.build.directory}</outputDirectory>
+          </configuration>
         </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
