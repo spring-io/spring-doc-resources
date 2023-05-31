@@ -1,0 +1,27 @@
+name: Build and Publish
+on:
+  release:
+    types:
+      - created
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/**'
+      - 'spring-style-guide/**'
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'liberica'
+      - name: Build and Publish
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ secrets.OSSRH_TOKEN }}
+        run: ./gradlew publish
