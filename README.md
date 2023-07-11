@@ -4,6 +4,8 @@
 
 This project generates and packages the static resources that Spring uses for document production.
 
+**NOTE:** This project is now superseded by the [Spring Asciidoctor Backends](https://github.com/spring-io/spring-asciidoctor-backends#asciidoctor-spring-backends). 
+
 ## Maven build integration
 
 You can use the [Asciidoctor Maven plugin](https://github.com/asciidoctor/asciidoctor-maven-plugin)
